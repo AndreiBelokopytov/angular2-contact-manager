@@ -2,3 +2,4 @@
   {{title}}
 </h1>
 <app-list-of-clients [clients]="clients" (clientSelected)="selectClient($event)"></app-list-of-clients>
+<app-client-details [client]="selectedClient"></app-client-details>

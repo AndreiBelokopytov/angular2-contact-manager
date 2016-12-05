@@ -9,9 +9,10 @@ import { CLIENTS } from '../data/clients';
 })
 export class AppComponent implements OnInit {
   clients: Array<Client>;
+  selectedClient: Client;
 
   selectClient(client: Client): void {
-    console.log('CLient selected', client.fullName);
+    this.selectedClient = client;
   }
 
   ngOnInit() {
