@@ -6,6 +6,7 @@ $sidebar-width: 37rem;
 
 .app-layout {
   @include outer-container;
+  overflow-x: hidden;
   height: 100vh;
 
   .navbar {

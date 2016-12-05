@@ -1,3 +1,9 @@
+// decorators will not work with properties in TS
+//  so this solution will be good enouth :)
+const nonEnumerable = [
+  'avatar'
+];
+
 export class Client {
   private static _idCache: number = 0;
 
@@ -29,7 +35,7 @@ export class Client {
       this.zipCode = json.address.zipCode;
       this.country = json.address.country;
     } catch (err) {
-      console.log(`Failed to create Client from JSON: ${err.message}.t`);
+      console.log(`Failed to create Client from JSON: ${err.message}.`);
     }
   }
 
@@ -40,14 +46,11 @@ export class Client {
   searchThroughFields(text: string): boolean {
     let fields = [];
     for (let key in this) {
-      let field = this[key];
-
-      console.log(key);
-      if (this.hasOwnProperty(key) && typeof field !== 'function') {
+      if (this.hasOwnProperty(key) && nonEnumerable.indexOf(key) < 0) {
+        let field = this[key];
         fields.push(field.toString());
       }
     }
-
     return fields.join('').toLowerCase().includes(text.toLowerCase());
   }
 
