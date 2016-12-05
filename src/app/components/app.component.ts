@@ -10,6 +10,7 @@ import { CLIENTS } from '../data/clients';
 export class AppComponent implements OnInit {
   clients: Array<Client>;
   selectedClient: Client;
+  sidebarIsToggled: boolean = false;
 
   selectClient(client: Client): void {
     this.selectedClient = client;
@@ -21,5 +22,9 @@ export class AppComponent implements OnInit {
       client.fromJSON(item);
       return client;
     });
+  }
+
+  toggleSidebar(): void {
+    this.sidebarIsToggled = !this.sidebarIsToggled;
   }
 }

@@ -9,7 +9,8 @@
   </div>
   <ul>
     <li *ngFor="let client of clients"
-      (click)="selectListItem(client)">
+      (click)="selectListItem(client)"
+      [class.active]="selectedClient && client.fullName === selectedClient.fullName">
       <div class="client-avatar" [style.background-image]="'url(' + client.avatar + ')'">
       </div>
       <div class="client-info">

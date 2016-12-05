@@ -1,11 +1,17 @@
 @import 'node_modules/bourbon/app/assets/stylesheets/bourbon';
 @import 'node_modules/bourbon-neat/app/assets/stylesheets/neat';
 
-.client-details {
-  @include span-columns(8);
-  margin-top: 6em;
+@import '../../settings';
 
-.client-avatar-big {
+.client-details {
+  margin-top: 6em;
+  padding: 0 2em;
+
+  @include media($mobile) {
+    margin-top: 2em;
+  };
+
+  .client-avatar-big {
     display: block;
     float: left;
     @include size(14em);

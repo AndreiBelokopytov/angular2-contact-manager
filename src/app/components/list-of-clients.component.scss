@@ -7,22 +7,25 @@ $search-panel-height: 6em;
 $search-panel-padding: 2em;
 
 .list-of-clients {
-  @include span-columns(4);
-  position: relative;
-  padding: 0 2em;
   height: 100%;
+  position: relative;
 
   ul {
-    margin: $search-panel-height 0 0 0;
-    padding: 0;
-    @include calc(height, "100% - #{$search-panel-height}");;
+    padding: $search-panel-height 0 0 0;
+    margin: 0;
+    height: 100%;
     list-style: none;
     overflow-y: auto;
     > li {
       display: block;
       @include clearfix;
       cursor: pointer;
-      padding: 1.4em 0;
+      padding: 1.4em 2em;
+
+      &.active {
+        background-color: $color-primary;
+        color: $color-initial;
+      }
     }
   }
 
@@ -57,15 +60,17 @@ $search-panel-padding: 2em;
   padding: 1.5em $search-panel-padding;
   background: $color-initial;
   height: $search-panel-height;
+  @include border-width(0 0 .1rem 0);
+  border-color: $light-gray;
+  border-style: solid;
 
   input[type=search] {
     display: block;
     width: 100%;
     font-size: 1.4em;
-    line-height: 2;
+    line-height: 2.6;
     padding: 0;
-    @include border-width(0 0 .1rem 0);
-    border-color: $light-gray;
+    border: 0;
 
     &:focus {
       outline: none;

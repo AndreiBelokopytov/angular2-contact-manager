@@ -9,6 +9,7 @@ import { Client } from '../models/client';
 export class ListOfClientsComponent implements OnInit {
   @Input()
   clients: Array<Client>;
+  selectedClient: Client;
 
   private _originalClients: Array<Client>;
 
@@ -17,6 +18,7 @@ export class ListOfClientsComponent implements OnInit {
   constructor() { }
 
   selectListItem(event: Client): void {
+    this.selectedClient = event;
     this.clientSelected.emit(event);
   }
 
