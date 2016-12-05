@@ -86,6 +86,7 @@ $search-panel-padding: 2em;
     background: transparent;
     color: $color-initial;
     @include placeholder {
+      font-family: $base-font-family;
       color: $color-initial;
       font-weight: 300;
     }
