@@ -1,0 +1,16 @@
+<div class="list-of-clients">
+  <div class="client-seach-input">
+    <input name="search" type="search">
+  </div>
+  <ul>
+    <li *ngFor="let client of clients" (click)="selectListItem(client)">
+      <div class="client-avatar">
+        <img [src]="client.avatar" [alt]="client.fullName">
+      </div>
+      <div class="client-info">
+        <h4>{{client.fullName}}</h4>
+        <p>{{client.jobTitle}}</p>
+      </div>
+    </li>
+  </ul>
+</div>
