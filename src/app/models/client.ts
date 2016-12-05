@@ -32,4 +32,18 @@ export class Client {
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
+
+  searchThroughFields(text: string): boolean {
+    let fields = [];
+    for (let key in this) {
+      let field = this[key];
+
+      console.log(key);
+      if (this.hasOwnProperty(key) && typeof field !== 'function') {
+        fields.push(field.toString());
+      }
+    }
+
+    return fields.join('').toLowerCase().includes(text.toLowerCase());
+  }
 }

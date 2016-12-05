@@ -1,6 +1,11 @@
 <div class="list-of-clients">
   <div class="client-search-input">
-    <input name="search" placeholder="Type to search employee" type="search">
+    <input name="search"
+      #searchBox
+      placeholder="Type to search employee"
+      type="search"
+      (keyup)="search(searchBox.value)"
+      maxlength="12">
   </div>
   <ul>
     <li *ngFor="let client of clients"

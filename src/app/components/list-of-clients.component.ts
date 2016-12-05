@@ -10,12 +10,23 @@ export class ListOfClientsComponent implements OnInit {
   @Input()
   clients: Array<Client>;
 
+  private _originalClients: Array<Client>;
+
   @Output() clientSelected: EventEmitter<Client> = new EventEmitter<Client>();
 
   constructor() { }
 
   selectListItem(event: Client): void {
     this.clientSelected.emit(event);
+  }
+
+  search(searchString: string): void {
+    if (!this._originalClients) {
+      this._originalClients = this.clients.slice();
+    }
+    this.clients = this._originalClients.filter(client => {
+      return client.searchThroughFields(searchString);
+    });
   }
 
   ngOnInit() {
