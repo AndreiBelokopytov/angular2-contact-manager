@@ -14,13 +14,9 @@ html {
 body {
   color: $color-secondary;
   font-family: $base-font-family;
-  font-size: $base-font-size-small;
+  font-size: $base-font-size;
   font-weight: $base-font-weight;
   line-height: $base-line-height;
-
-  @include media($small-tablet) {
-    font-size: $base-font-size;
-  }
 }
 
 *,
@@ -29,16 +25,3 @@ body {
   box-sizing: inherit;
 }
 
-// setup neat grid
-$max-width: $content-width;
-$grid-columns: $columns-count;
-
-.container-fixed {
-  @include outer-container();
-  @include pad(0 1.5rem);
-  height: 100%;
-}
-
-.row {
-  @include row;
-}

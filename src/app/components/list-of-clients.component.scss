@@ -1,0 +1,74 @@
+@import 'node_modules/bourbon/app/assets/stylesheets/bourbon';
+@import 'node_modules/bourbon-neat/app/assets/stylesheets/neat';
+
+@import '../../settings';
+
+$search-panel-height: 6em;
+$search-panel-padding: 2em;
+
+.list-of-clients {
+  @include span-columns(4);
+  position: relative;
+  padding: 0 2em;
+  height: 100%;
+
+  ul {
+    margin: $search-panel-height 0 0 0;
+    padding: 0;
+    @include calc(height, "100% - #{$search-panel-height}");;
+    list-style: none;
+    overflow-y: auto;
+    > li {
+      display: block;
+      @include clearfix;
+      cursor: pointer;
+      padding: 1.4em 0;
+    }
+  }
+
+  .client-avatar {
+    display: block;
+    float: left;
+    @include size(6em);
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .client-info {
+    display: block;
+    float: left;
+    margin-left: 1em;
+
+    h4 {
+      font-size: 1.8em;
+      margin-top: 0;
+      margin-bottom: em(1em, 1.8);
+    }
+  }
+}
+
+.client-search-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5em $search-panel-padding;
+  background: $color-initial;
+  height: $search-panel-height;
+
+  input[type=search] {
+    display: block;
+    width: 100%;
+    font-size: 1.4em;
+    line-height: 2;
+    padding: 0;
+    @include border-width(0 0 .1rem 0);
+    border-color: $light-gray;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

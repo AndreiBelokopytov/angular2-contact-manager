@@ -1,27 +1,32 @@
-<div class="client-details" *ngIf="client">
-  <div class="client-avatar-big">
-    <img [src]="client.avatar" alt="client.fullName">
+<div class="client-details">
+  <div *ngIf="client">
+    <div class="client-avatar-big">
+      <img [src]="client.avatar" alt="client.fullName">
+    </div>
+    <div class="client-info-full">
+      <h3 class="client-info-header">{{client.fullName}}</h3>
+      <h4 class="client-info-subheader">{{client.jobTitle}} - {{client.company}}</h4>
+      <div class="client-info-section">
+        <div class="client-info-section-title">Contacts</div>
+        <div class="client-info-label">Email</div>
+        <div class="client-info-field">{{client.email}}</div>
+        <div class="client-info-label">Phone</div>
+        <div class="client-info-field">{{client.phone}}</div>
+      </div>
+      <div class="client-info-section">
+        <div class="client-info-section-title">Address</div>
+        <div class="client-info-label">Country</div>
+        <div class="client-info-field">{{client.country}}</div>
+        <div class="client-info-label">City</div>
+        <div class="client-info-field">{{client.city}}</div>
+        <div class="client-info-label">Street</div>
+        <div class="client-info-field">{{client.street}}</div>
+        <div class="client-info-label">Zip code</div>
+        <div class="client-info-field">{{client.zipCode}}</div>
+      </div>
+    </div>
   </div>
-  <div class="client-info-full">
-    <h3 class="client-info-header">{{client.fullName}}</h3>
-    <h4 class="client-info-subheader">{{client.jobTitle}} - {{client.company}}</h4>
-    <div class="client-info-section">
-      <div class="client-info-section-title">Contacts</div>
-      <div class="client-info-label">Email</div>
-      <div class="client-info-field">{{client.email}}</div>
-      <div class="client-info-label">Phone</div>
-      <div class="client-info-field">{{client.phone}}</div>
-    </div>
-    <div class="client-info-section">
-      <div class="client-info-section-title">Address</div>
-      <div class="client-info-label">Country</div>
-      <div class="client-info-field">{{client.country}}</div>
-      <div class="client-info-label">City</div>
-      <div class="client-info-field">{{client.city}}</div>
-      <div class="client-info-label">Street</div>
-      <div class="client-info-field">{{client.street}}</div>
-      <div class="client-info-label">Zip code</div>
-      <div class="client-info-field">{{client.zipCode}}</div>
-    </div>
+  <div *ngIf="!client">
+    <div>Select client from list to see details</div>
   </div>
 </div>
