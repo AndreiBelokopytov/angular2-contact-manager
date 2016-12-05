@@ -20,10 +20,26 @@ $search-panel-padding: 2em;
       display: block;
       @include clearfix;
       cursor: pointer;
-      padding: 1.4em 2em;
 
       &.active {
         background-color: #C5CAE9;
+      }
+
+      a {
+        display: block;
+        @include clearfix;
+        padding: 1.4em 2em;
+        color: #000;
+
+        &:active {
+          color: #000;
+        }
+        &:hover {
+          color: #000;
+        }
+        &:visited {
+          color: #000;
+        }
       }
     }
   }

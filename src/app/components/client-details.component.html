@@ -1,5 +1,5 @@
-<div class="client-details">
-  <div *ngIf="client">
+<div class="client-details" *ngIf="client">
+  <div>
     <div class="client-avatar-big" [style.background-image]="'url(' + client.avatar + ')'">
     </div>
     <div class="client-info-full">
@@ -24,8 +24,5 @@
         <div class="client-info-field">{{client.zipCode}}</div>
       </div>
     </div>
-  </div>
-  <div *ngIf="!client">
-    <div>Select client from list to see details</div>
   </div>
 </div>

@@ -1,27 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable} from '@angular/core';
 import { Client } from '../models/client';
-import { CLIENTS } from '../data/clients';
+import { ClientsService } from '../services/clients.service'
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+@Injectable()
 export class AppComponent implements OnInit {
   clients: Array<Client>;
-  selectedClient: Client;
   sidebarIsToggled: boolean = false;
 
-  selectClient(client: Client): void {
-    this.selectedClient = client;
-  }
+  constructor(
+    private _clientsService: ClientsService
+  ){}
 
   ngOnInit() {
-    this.clients = CLIENTS.map(item => {
-      let client = new Client();
-      client.fromJSON(item);
-      return client;
-    });
+    this._clientsService.getClients().then(clients => {
+      this.clients = clients;
+    })
   }
 
   toggleSidebar(): void {

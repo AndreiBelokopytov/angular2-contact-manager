@@ -1,4 +1,7 @@
 export class Client {
+  private static _idCache: number = 0;
+
+  id: number;
   firstName: string;
   lastName: string;
   avatar: string;
@@ -13,6 +16,7 @@ export class Client {
 
   fromJSON(json: any) {
     try {
+      this.id = this._getNewId();
       this.firstName = json.general.firstName;
       this.lastName = json.general.lastName;
       this.avatar = json.general.avatar;
@@ -45,5 +49,9 @@ export class Client {
     }
 
     return fields.join('').toLowerCase().includes(text.toLowerCase());
+  }
+
+  private _getNewId(): number {
+    return ++Client._idCache;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Client } from '../models/client';
 
 @Component({
@@ -10,17 +10,9 @@ export class ListOfClientsComponent implements OnInit {
   @Input()
   clients: Array<Client>;
   selectedClient: Client;
-
   private _originalClients: Array<Client>;
 
-  @Output() clientSelected: EventEmitter<Client> = new EventEmitter<Client>();
-
   constructor() { }
-
-  selectListItem(event: Client): void {
-    this.selectedClient = event;
-    this.clientSelected.emit(event);
-  }
 
   search(searchString: string): void {
     if (!this._originalClients) {
