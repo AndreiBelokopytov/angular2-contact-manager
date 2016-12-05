@@ -1,0 +1,44 @@
+@import 'node_modules/normalize-scss/sass/normalize';
+@include normalize();
+
+@import 'settings';
+
+@import 'node_modules/bourbon/app/assets/stylesheets/bourbon';
+@import 'node_modules/bourbon-neat/app/assets/stylesheets/neat';
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  color: $color-secondary;
+  font-family: $base-font-family;
+  font-size: $base-font-size-small;
+  font-weight: $base-font-weight;
+  line-height: $base-line-height;
+
+  @include media($small-tablet) {
+    font-size: $base-font-size;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+// setup neat grid
+$max-width: $content-width;
+$grid-columns: $columns-count;
+
+.container-fixed {
+  @include outer-container();
+  @include pad(0 1.5rem);
+  height: 100%;
+}
+
+.row {
+  @include row;
+}
