@@ -3,4 +3,50 @@
 
 .client-details {
   @include span-columns(8);
+  margin-top: 6em;
+
+.client-avatar-big {
+    display: block;
+    float: left;
+    @include size(14em);
+    border-radius: 50%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .client-info-full {
+    display: block;
+    float: left;
+    margin-left: 2em;
+
+    .client-info-header {
+      font-size: 2.2em;
+      margin: 0 0 em(1.4, 2) 0;
+    }
+
+    .client-info-subheader {
+      font-size: 1.6em;
+      margin: 0 0 em(1.4, 1.6);
+    }
+
+    .client-info-section {
+      margin-top: 1em;
+    }
+
+    .client-info-section-title {
+      font-size: 1.8em;
+      text-transform: uppercase;
+      margin-bottom: em(1.4em, 1.8em);
+    }
+
+    .client-info-label {
+      font-size: 1.4em;
+      font-weight: bold;
+    }
+
+    .client-info-field {
+      font-size: 1.4em;
+    }
+  }
 }

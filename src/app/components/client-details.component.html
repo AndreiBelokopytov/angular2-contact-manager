@@ -1,7 +1,6 @@
 <div class="client-details">
   <div *ngIf="client">
-    <div class="client-avatar-big">
-      <img [src]="client.avatar" alt="client.fullName">
+    <div class="client-avatar-big" [style.background-image]="'url(' + client.avatar + ')'">
     </div>
     <div class="client-info-full">
       <h3 class="client-info-header">{{client.fullName}}</h3>
