@@ -24,7 +24,7 @@ $sidebar-width: 37rem;
   .sidebar {
     @include span-columns(4);
     height: 100%;
-    background: $color-initial;
+    background: #f8f8f8;
 
     @include media($mobile) {
       position: fixed;
@@ -34,6 +34,10 @@ $sidebar-width: 37rem;
       width: $sidebar-width;
       display: none;
     };
+
+    @include media($small-tablet-stop) {
+      @include span-columns(5);
+    }
 
     &.toggled {
       @include media($mobile) {
@@ -47,6 +51,10 @@ $sidebar-width: 37rem;
 
     @include media($mobile) {
       @include span-columns(12);
+    }
+
+    @include media($small-tablet-stop) {
+      @include span-columns(7);
     }
 
     &.toggled {

@@ -23,8 +23,7 @@ $search-panel-padding: 2em;
       padding: 1.4em 2em;
 
       &.active {
-        background-color: $color-primary;
-        color: $color-initial;
+        background-color: #C5CAE9;
       }
     }
   }
@@ -58,11 +57,8 @@ $search-panel-padding: 2em;
   left: 0;
   right: 0;
   padding: 1.5em $search-panel-padding;
-  background: $color-initial;
+  background: $indigo;
   height: $search-panel-height;
-  @include border-width(0 0 .1rem 0);
-  border-color: $light-gray;
-  border-style: solid;
 
   input[type=search] {
     display: block;
@@ -71,6 +67,12 @@ $search-panel-padding: 2em;
     line-height: 2.6;
     padding: 0;
     border: 0;
+    background: transparent;
+    color: $color-initial;
+    @include placeholder {
+      color: $color-initial;
+      font-weight: 300;
+    }
 
     &:focus {
       outline: none;
